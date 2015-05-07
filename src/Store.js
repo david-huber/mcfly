@@ -54,7 +54,9 @@ class Store {
    * Emits change event
    */
   emitChange() {
-    this.emit('change');
+      var emitArguments = [].slice.call(arguments);
+      emitArguments.unshift('change');
+      this.emit.apply(this, emitArguments);
   }
 
   /**
